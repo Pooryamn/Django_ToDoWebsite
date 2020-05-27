@@ -23,4 +23,6 @@ urlpatterns = [
     path('signup/',views.SignUpUser,name='SignUpUser'),
     # Todos
     path('current/',views.CurrentTodo,name='CurrentTodo'),
+    path('logout/',views.LogoutUser,name='LogoutUser'),
+    path('',views.home,name='home'),
 ]
