@@ -16,4 +16,4 @@ def SignUpUser(request):
 
         else:
             #tell user password isnt match
-            pass
+            return render(request,'ToDoApp/SignUpUser.html',{'form': UserCreationForm(),'error':'Passwords did not match!'})
