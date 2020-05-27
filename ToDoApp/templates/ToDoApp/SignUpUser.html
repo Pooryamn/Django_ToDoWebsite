@@ -1,3 +1,7 @@
+{% extends 'ToDoApp/base.html' %}
+
+{% block content %}
+
 <h1>SignUp</h1>
 
 <h2>{{ error }}</h2>
@@ -7,3 +11,5 @@
 {{ form.as_p }}
 <button type="submit">Sign Up</button>
 </form>
+
+{% endblock %}
