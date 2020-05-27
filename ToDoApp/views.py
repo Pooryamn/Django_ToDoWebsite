@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
@@ -18,6 +18,8 @@ def SignUpUser(request):
             try:
                 user = User.objects.create_user(request.POST['username'],password=request.POST['password1'])
                 user.save()
+                login(request,user)
+                return redirect('CurrentTodo')
 
             except IntegrityError:
                 return render(request,'ToDoApp/SignUpUser.html',{'form': UserCreationForm(),'error':'that Username has already exists!'})     
@@ -25,3 +27,6 @@ def SignUpUser(request):
         else:
             #tell user password isnt match
             return render(request,'ToDoApp/SignUpUser.html',{'form': UserCreationForm(),'error':'Passwords did not match!'})
+
+def CurrentTodo(request):
+    return render(request,'ToDoApp/CurrentTodo.html')
