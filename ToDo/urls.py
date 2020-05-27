@@ -20,7 +20,7 @@ from ToDoApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Auth 
-    path('signup/',views.SignUpUser,name='SignUpUser')
-
+    path('signup/',views.SignUpUser,name='SignUpUser'),
     # Todos
+    path('current/',views.CurrentTodo,name='CurrentTodo'),
 ]
